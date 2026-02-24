@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: moderation-squad
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --bind 0.0.0.0:$PORT --timeout 120
+    envVars:
+      - key: SECRET_KEY
+        value: modsquad_render_2025_ultra_secure_key
+      - key: GMAIL_USER
+        value: australiapaper33@gmail.com
+      - key: GMAIL_PASS
+        value: gcskbvbwreajnris
